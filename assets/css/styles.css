@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+nav {
+  padding: 8px;
+  border-bottom: 1px solid #aaa;
+}
+
+nav .selected {
+  font-weight: bold;
+}
+
+.content {
+  padding: 8px;
+}

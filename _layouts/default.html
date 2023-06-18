@@ -2,13 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?230618" />
   </head>
   <body>
     <nav>
+      {% if page.url == "/" %}
+      <span class="selected">Home</span>
+      {% else %}
       <a href="/">Home</a>
+      {% endif %} {% if page.url == "/about.html" %}
+      <span class="selected">About</span>
+      {% else %}
       <a href="/about.html">About</a>
+      {% endif %}
     </nav>
-    {{ content }}
+    <div class="content">{{ content }}</div>
   </body>
 </html>
