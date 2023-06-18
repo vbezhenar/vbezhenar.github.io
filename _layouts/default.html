@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ page.title }}</title>
+    <title>
+      vbezhenar.com {% if page.title != nil %}- {{ page.title }}{% endif %}
+    </title>
     <link rel="stylesheet" href="/assets/css/styles.css?230618" />
   </head>
   <body>
@@ -12,6 +14,10 @@
       <span class="selected">Home</span>
       {% else %}
       <a href="/">Home</a>
+      {% endif %} {% if page.url == "/posts.html" %}
+      <span class="selected">Posts</span>
+      {% else %}
+      <a href="/posts.html">Posts</a>
       {% endif %} {% if page.url == "/about.html" %}
       <span class="selected">About</span>
       {% else %}
