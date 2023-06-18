@@ -4,3 +4,20 @@ title: About
 ---
 
 <p>My name is Vladimir Bezhenar. I am a software developer from Kazakhstan.</p>
+
+<p>
+  <a id="e-mail" href="mailto:me_at_vbezhenar_dot_com">E-mail</a>
+
+  <a href="https://github.com/vbezhenar">GitHub</a>
+
+  <a href="https://stackoverflow.com/users/315129/vbezhenar">Stack overflow</a>
+</p>
+
+<script>
+  var emailElement = document.getElementById("e-mail");
+  emailElement.addEventListener("mouseover", function () {
+    emailElement.href = emailElement.href
+      .replace("_at_", "@")
+      .replace("_dot_", ".");
+  });
+</script>
