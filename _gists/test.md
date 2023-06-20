@@ -1,5 +1,4 @@
 ---
-layout: gist
 title: test
 ---
 
