@@ -1,0 +1,13 @@
+---
+layout: default
+title: Gists
+---
+
+<ul>
+  {% for gist in site.gists %}
+  <li>
+    <h2><a href="{{ gist.url }}">{{ gist.title }}</a></h2>
+    {{ gist.content }}
+  </li>
+  {% endfor %}
+</ul>

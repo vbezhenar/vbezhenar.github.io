@@ -18,6 +18,10 @@
       <span class="selected">Posts</span>
       {% else %}
       <a href="/posts.html">Posts</a>
+      {% endif %} {% if page.url == "/gists.html" %}
+      <span class="selected">Gists</span>
+      {% else %}
+      <a href="/gists.html">Gists</a>
       {% endif %} {% if page.url == "/about.html" %}
       <span class="selected">About</span>
       {% else %}
