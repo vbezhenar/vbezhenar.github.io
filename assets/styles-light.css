@@ -3,6 +3,14 @@ body {
   color: #1f1f1f;
 }
 
+a {
+  color: #0000ee;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
 /* keyword */
 .highlight .k /* Keyword */,
 .highlight .kn /* Keyword.Namespace */ {

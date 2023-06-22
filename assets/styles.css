@@ -1,5 +1,5 @@
-@import "./styles-light.css?230622" not (prefers-color-scheme: dark);
-@import "./styles-dark.css?230622" (prefers-color-scheme: dark);
+@import "./styles-light.css?230623" not (prefers-color-scheme: dark);
+@import "./styles-dark.css?230623" (prefers-color-scheme: dark);
 
 :root {
   --header-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
