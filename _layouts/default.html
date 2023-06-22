@@ -6,7 +6,16 @@
     <title>
       vbezhenar.com {% if page.title != nil %}- {{ page.title }}{% endif %}
     </title>
-    <link rel="icon" href="/assets/icon.png" />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      href="/assets/icon-dark.png?230623"
+    />
+    <link
+      rel="icon"
+      media="not (prefers-color-scheme: dark)"
+      href="/assets/icon-light.png?230623"
+    />
     <link rel="stylesheet" href="/assets/styles.css?230622" />
   </head>
   <body>
