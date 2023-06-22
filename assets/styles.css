@@ -1,10 +1,37 @@
+@import "./styles-light.css?230622" not (prefers-color-scheme: dark);
+@import "./styles-dark.css?230622" (prefers-color-scheme: dark);
+
+:root {
+  --header-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+    "DejaVu Sans", source-sans-pro, sans-serif;
+  --content-font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria,
+    serif;
+  --code-font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+}
+
 body {
   margin: 0;
+  font-family: var(--content-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font-family);
+}
+
+code {
+  font-family: var(--code-font-family);
 }
 
 nav {
   padding: 8px;
   border-bottom: 1px solid #aaa;
+  font-family: var(--header-font-family);
 }
 
 nav .selected {

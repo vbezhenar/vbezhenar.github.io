@@ -1,0 +1,21 @@
+body {
+  background: #181818;
+  color: #d7d7d7;
+}
+
+/* keyword */
+.highlight .k /* Keyword */,
+.highlight .kn /* Keyword.Namespace */ {
+  color: #569cd6;
+}
+
+/* comment */
+.highlight .c1 /* Comment.Single */,
+.highlight .cm /* Comment.Multiline */ {
+  color: #6a9955;
+}
+
+/* string */
+.highlight .s /* Literal.String */ {
+  color: #ce9178;
+}
