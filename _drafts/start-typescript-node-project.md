@@ -52,9 +52,9 @@ We added the `exactOptionalPropertyTypes` option to make TypeScript more strict
 about optional properties. It is a recommended option that is not enabled by
 default.
 
-Although the `rootDir` option is not strictly necessary, TypeScript will attempt
-to automatically detect it if it's not specified. Therefore, it's better to
-specify it explicitly.
+The `rootDir` option is not strictly necessary, TypeScript will attempt to
+automatically detect it if it's not specified. It might be better to specify it
+explicitly.
 
 ```sh
 % npm install --save-dev 'typescript@~5.0.4'
@@ -96,8 +96,8 @@ import { concat } from "./concat.js";
 console.log(concat("Hello", "world!"));
 ```
 
-Now we compile, inspect results and run the code. Notice that JavaScript output
-is pretty much identical to the TypeScript minus types.
+Now we will compile, inspect results and run the code. Notice that JavaScript
+output is pretty much identical to the TypeScript minus types.
 
 ```sh
 % npx tsc
@@ -114,8 +114,11 @@ Hello world!
 
 ## Add and configure ESLint
 
-Default eslint configuration is almost good enough to my taste, however I like
-to add `eqeqeq` rule.
+"The default ESLint configuration is a good starting point. However, there are
+[plenty](https://eslint.org/docs/latest/rules/) of additional checks that are
+not enabled by default. For instance, the
+[`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added as
+an example."
 
 ```
 % npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
@@ -157,12 +160,11 @@ npx eslint .
 
 ## Add and configure Prettier
 
-Prettier is another indispensable tool for any JavaScript or TypeScript project
-for consistent codestyle.
-
-While Prettier provides good defaults out of the box, I still prefer to
-configure one little thing where Prettier lacks consistency. `trailingComma`
-option forces Prettier to always use trailing commas whenever appropriate.
+Prettier provides excellent defaults out of the box and even maintains a
+[philosophy](https://prettier.io/docs/en/option-philosophy.html) regarding its
+options. In this guide, we will modify the `trailingComma` option as an example.
+However, it's generally recommended to leave most options at their default
+settings.
 
 ```sh
 npm install --save-dev 'prettier'
@@ -182,7 +184,7 @@ npm install --save-dev 'prettier'
 }
 ```
 
-Now check our sources:
+Now we can check if our sources are properly formatted:
 
 ```sh
 % npx prettier -c .
@@ -207,11 +209,10 @@ await test("concat works", () => {
 });
 ```
 
-Now we can run our unit test. `node --test` will find all JavaScript files
-matching
+Now we can run this unit test. `node --test dist` will find all JavaScript files
+with names matching
 [some rules](https://nodejs.org/docs/latest-v18.x/api/test.html#test-runner-execution-model)
-and will execute every one of them. `concat.test.js` will be matched by `--test`
-option and will be executed.
+inside `dist` directory and will execute every one of them.
 
 ```sh
 npx tsc
