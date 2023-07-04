@@ -31,7 +31,7 @@ We will use a minimal `package.json` with ESM modules.
 Check JSON syntax:
 
 ```sh
-npm install
+% npm install
 ```
 
 ## Add and configure TypeScript
@@ -57,9 +57,7 @@ automatically detect it if it's not specified. It might be better to specify it
 explicitly.
 
 ```sh
-% npm install --save-dev 'typescript@~5.0.4'
-% npm install --save-dev '@tsconfig/node18'
-% npm install --save-dev '@types/node'
+% npm install --save-dev 'typescript@~5.0.4' '@tsconfig/node18' '@types/node'
 ```
 
 `tsconfig.json`:
@@ -103,11 +101,11 @@ output is pretty much identical to the TypeScript minus types.
 % npx tsc
 % cat dist/concat.js
 export function concat(a, b) {
-    return a + ' ' + b;
+    return a + " " + b;
 }
 % cat dist/index.js
-import { concat } from './concat.js';
-console.log(concat('Hello', 'world!'));
+import { concat } from "./concat.js";
+console.log(concat("Hello", "world!"));
 % node dist/index.js
 Hello world!
 ```
@@ -120,7 +118,7 @@ not enabled by default. For instance, the
 [`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added as
 an example."
 
-```
+```sh
 % npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
 ```
 
@@ -155,7 +153,7 @@ an example."
 Check that it works:
 
 ```sh
-npx eslint .
+% npx eslint .
 ```
 
 ## Add and configure Prettier
@@ -167,7 +165,7 @@ However, it's generally recommended to leave most options at their default
 settings.
 
 ```sh
-npm install --save-dev 'prettier'
+% npm install --save-dev 'prettier'
 ```
 
 `.prettierignore`:
@@ -209,14 +207,22 @@ await test("concat works", () => {
 });
 ```
 
-Now we can run this unit test. `node --test dist` will find all JavaScript files
-with names matching
+Now we can compile and run this unit test. `node --test dist` will find all
+JavaScript files with names matching
 [some rules](https://nodejs.org/docs/latest-v18.x/api/test.html#test-runner-execution-model)
 inside `dist` directory and will execute every one of them.
 
 ```sh
-npx tsc
-node --test dist
+% npx tsc
+% node --test dist
+✔ concat works (0.48175ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.819834
 ```
 
 ## Configure npm scripts
@@ -245,9 +251,9 @@ commands and their options.
 
 Now we can execute `npm run build:watch` in the background terminal and our
 TypeScript code will be constantly compiled as it changes. `npm start` will
-start our application and `npm start:watch` will restart it on any code change.
-Similarly we can use `npm test` to run tests once or `npm run test:watch` to run
-tests on every code change.
+start our application and `npm run start:watch` will restart it on any code
+change. Similarly we can use `npm test` to run tests once or
+`npm run test:watch` to run tests on every code change.
 
 ## IDE remarks
 
