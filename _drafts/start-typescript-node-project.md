@@ -6,15 +6,17 @@ My minimal selection of tools and libraries for a TypeScript Node project.
 
 ## Prerequisites
 
-node v18.16.0, npm 9.7.1
+This setup has been tested with node v18.16.0 and npm 9.7.1. Basic knowledge of
+npm is assumed. Reading reference documentation for corresponding tools is
+recommended.
 
 ## Create a new project
 
-It uses minimally viabe `package.json` and uses ESM modules.
+We will use a minimal `package.json` with ESM modules.
 
 ```sh
-% mkdir pdf-generator
-% cd pdf-generator
+% mkdir my-project
+% cd my-project
 ```
 
 `package.json`:
@@ -34,24 +36,25 @@ npm install
 
 ## Add and configure TypeScript
 
-I'm using TypeScript 5.0 because as of 2023-07-03, typescript-eslint is not
+We'll use TypeScript 5.0 because as of 2023-07-03, typescript-eslint is not
 compatible with TypeScript 5.1.
 
-`@tsconfig/node18` is a tiny package which supplies tsconfig generation with
-sane default values to extend from. It's recommended by typescript
+[`@tsconfig/node18`](https://www.npmjs.com/package/@tsconfig/node18) is a tiny
+package which provides some default values for tsconfig to extend from. It's
+[recommended](https://www.typescriptlang.org/tsconfig#target) by typescript
 documentation. Alternatively we can just copy its contents into `tsconfig.json`
 to avoid extra dependency.
 
-`@types/node` provides type definitions for Node.js. It's required to use any
-node API, even for `console.log`.
+[`@types/node`](https://www.npmjs.com/package/@types/node) provides type
+definitions for Node.js API.
 
-We added `exactOptionalPropertyTypes` option to make TypeScript more strict
-about optional properties. It is recommended option, which is not enabled by
+We added the `exactOptionalPropertyTypes` option to make TypeScript more strict
+about optional properties. It is a recommended option that is not enabled by
 default.
 
-A `rootDir` option is not strictly necessary, however TypeScript will try to
-detect it automatically if it's not specified, so we might as well to specify it
-for explicitness.
+Although the `rootDir` option is not strictly necessary, TypeScript will attempt
+to automatically detect it if it's not specified. Therefore, it's better to
+specify it explicitly.
 
 ```sh
 % npm install --save-dev 'typescript@~5.0.4'
@@ -73,7 +76,7 @@ for explicitness.
 }
 ```
 
-Now we can add two files and test our setup.
+Now we can add two files in order to test our setup.
 
 Please note that we're using `.js` file extension in `import` statement in the
 `.ts` file. This is not a typo or error. That's how TypeScript works with ESM.
@@ -110,10 +113,6 @@ Hello world!
 ```
 
 ## Add and configure ESLint
-
-I consider eslint to be a must-have tool for any JavaScript or TypeScript of any
-scale. Configuring it might be a little bit tricky, but with prepared setup to
-copy&paste it's not that bad.
 
 Default eslint configuration is almost good enough to my taste, however I like
 to add `eqeqeq` rule.
@@ -161,9 +160,9 @@ npx eslint .
 Prettier is another indispensable tool for any JavaScript or TypeScript project
 for consistent codestyle.
 
-While Prettier provides good defaults out of the box, I still prefer to congiure
-one little thing where Prettier lacks consistency. `trailingComma` option forces
-Prettier to always use trailing commas whenever appropriate.
+While Prettier provides good defaults out of the box, I still prefer to
+configure one little thing where Prettier lacks consistency. `trailingComma`
+option forces Prettier to always use trailing commas whenever appropriate.
 
 ```sh
 npm install --save-dev 'prettier'
@@ -191,6 +190,34 @@ Checking formatting...
 All matched files use Prettier code style!
 ```
 
+## Unit testing
+
+Node.js has a built-in test runner. We will add a unit test for our `concat`
+function.
+
+`src/concat.test.ts`:
+
+```ts
+import { test } from "node:test";
+import { strict as assert } from "node:assert";
+import { concat } from "./concat.js";
+
+await test("concat works", () => {
+  assert.equal(concat("a", "b"), "a b");
+});
+```
+
+Now we can run our unit test. `node --test` will find all JavaScript files
+matching
+[some rules](https://nodejs.org/docs/latest-v18.x/api/test.html#test-runner-execution-model)
+and will execute every one of them. `concat.test.js` will be matched by `--test`
+option and will be executed.
+
+```sh
+npx tsc
+node --test dist
+```
+
 ## Configure npm scripts
 
 It's a good idea to add a few npm scripts so we won't have to memorize all the
@@ -207,7 +234,9 @@ commands and their options.
     "build:watch": "tsc --watch",
     "check": "eslint --max-warnings 0 . && prettier --check .",
     "start": "node dist/index.js",
-    "start:watch": "node --watch dist/index.js"
+    "start:watch": "node --watch dist/index.js",
+    "test": "node --test dist",
+    "test:watch": "node --watch --test dist"
   },
   ...
 }
@@ -216,6 +245,8 @@ commands and their options.
 Now we can execute `npm run build:watch` in the background terminal and our
 TypeScript code will be constantly compiled as it changes. `npm start` will
 start our application and `npm start:watch` will restart it on any code change.
+Similarly we can use `npm test` to run tests once or `npm run test:watch` to run
+tests on every code change.
 
 ## IDE remarks
 
@@ -230,3 +261,5 @@ a default formatter and to run it on save:
 ```
 
 It's possible to configure WebStorm or Idea with ESLint and Prettier as well.
+
+Using `--watch` options allows for very fast feedback loops.
