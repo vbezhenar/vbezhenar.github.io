@@ -24,14 +24,18 @@
       <span class="selected">Home</span>
       {% else %}
       <a href="/">Home</a>
-      {% endif %} {% if page.url == "/posts.html" %}
-      <span class="selected">Posts</span>
+      {% endif %} {% if page.url == "/articles.html" %}
+      <span class="selected">Articles</span>
       {% else %}
-      <a href="/posts.html">Posts</a>
+      <a href="/articles.html">Articles</a>
       {% endif %} {% if page.url == "/gists.html" %}
       <span class="selected">Gists</span>
       {% else %}
       <a href="/gists.html">Gists</a>
+      {% endif %} {% if page.url == "/posts.html" %}
+      <span class="selected">Posts</span>
+      {% else %}
+      <a href="/posts.html">Posts</a>
       {% endif %} {% if page.url == "/about.html" %}
       <span class="selected">About</span>
       {% else %}

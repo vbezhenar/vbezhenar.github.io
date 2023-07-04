@@ -11,10 +11,11 @@ RUN NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install
 RUN echo 'en_US.UTF-8 UTF-8' > '/etc/locale.gen' && locale-gen
 ENV LANG en_US.UTF-8
 
+COPY _articles _articles
 COPY _gists _gists
 COPY _layouts _layouts
 COPY _posts _posts
 COPY assets assets
-COPY _config.yaml about.html gists.html index.html posts.html .
+COPY _config.yaml about.html articles.html gists.html index.html posts.html .
 
 ENTRYPOINT ["jekyll"]

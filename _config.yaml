@@ -1,8 +1,15 @@
 collections:
+  articles:
+    output: true
   gists:
     output: true
 
 defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
   - scope:
       path: ""
       type: gists
