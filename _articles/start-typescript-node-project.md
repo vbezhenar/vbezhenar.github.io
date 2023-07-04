@@ -2,7 +2,7 @@
 title: Start a TypeScript Node Project
 ---
 
-My minimal selection of tools and libraries for a TypeScript Node project.
+Minimal selection of tools and libraries for a TypeScript Node project.
 
 ## Prerequisites
 
@@ -15,8 +15,8 @@ recommended.
 We will use a minimal `package.json` with ESM modules.
 
 ```sh
-% mkdir my-project
-% cd my-project
+mkdir my-project
+cd my-project
 ```
 
 `package.json`:
@@ -31,7 +31,7 @@ We will use a minimal `package.json` with ESM modules.
 Check JSON syntax:
 
 ```sh
-% npm install
+npm install
 ```
 
 ## Add and configure TypeScript
@@ -57,7 +57,7 @@ automatically detect it if it's not specified. It might be better to specify it
 explicitly.
 
 ```sh
-% npm install --save-dev 'typescript@~5.0.4' '@tsconfig/node18' '@types/node'
+npm install --save-dev 'typescript@~5.0.4' '@tsconfig/node18' '@types/node'
 ```
 
 `tsconfig.json`:
@@ -98,28 +98,43 @@ Now we will compile, inspect results and run the code. Notice that JavaScript
 output is pretty much identical to the TypeScript minus types.
 
 ```sh
-% npx tsc
-% cat dist/concat.js
+npx tsc
+cat dist/concat.js
+```
+
+```js
 export function concat(a, b) {
-    return a + " " + b;
+  return a + " " + b;
 }
-% cat dist/index.js
+```
+
+```sh
+cat dist/index.js
+```
+
+```js
 import { concat } from "./concat.js";
 console.log(concat("Hello", "world!"));
-% node dist/index.js
+```
+
+```sh
+node dist/index.js
+```
+
+```
 Hello world!
 ```
 
 ## Add and configure ESLint
 
-"The default ESLint configuration is a good starting point. However, there are
+The default ESLint configuration is a good starting point. However, there are
 [plenty](https://eslint.org/docs/latest/rules/) of additional checks that are
 not enabled by default. For instance, the
 [`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added as
-an example."
+an example.
 
 ```sh
-% npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
+npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
 ```
 
 `.eslintignore`:
@@ -153,19 +168,19 @@ an example."
 Check that it works:
 
 ```sh
-% npx eslint .
+npx eslint .
 ```
 
 ## Add and configure Prettier
 
-Prettier provides excellent defaults out of the box and even maintains a
+Prettier provides good defaults out of the box and even maintains a
 [philosophy](https://prettier.io/docs/en/option-philosophy.html) regarding its
 options. In this guide, we will modify the `trailingComma` option as an example.
 However, it's generally recommended to leave most options at their default
 settings.
 
 ```sh
-% npm install --save-dev 'prettier'
+npm install --save-dev 'prettier'
 ```
 
 `.prettierignore`:
@@ -185,7 +200,10 @@ settings.
 Now we can check if our sources are properly formatted:
 
 ```sh
-% npx prettier -c .
+npx prettier -c .
+```
+
+```
 Checking formatting...
 All matched files use Prettier code style!
 ```
@@ -213,8 +231,11 @@ JavaScript files with names matching
 inside `dist` directory and will execute every one of them.
 
 ```sh
-% npx tsc
-% node --test dist
+npx tsc
+node --test dist
+```
+
+```
 ✔ concat works (0.48175ms)
 ℹ tests 1
 ℹ pass 1
