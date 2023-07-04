@@ -3,5 +3,6 @@ title: Retrieve graphql schema
 ---
 
 ```sh
-npx gql-sdl -H 'Cookie:connect.sid=abcdef' https://example.com/graphql > example.graphql
+npm install gql-sdl
+npx gql-sdl -H 'Cookie:auth=token' https://example.com/graphql > example.graphql
 ```
