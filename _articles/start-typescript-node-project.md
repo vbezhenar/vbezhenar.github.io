@@ -10,6 +10,9 @@ This setup has been tested with node v18.16.0 and npm 9.7.1. Basic knowledge of
 npm is assumed. Reading reference documentation for corresponding tools is
 recommended.
 
+Some options are not standard and disabled by default. I consider those options
+to be useful and enable them in my projects.
+
 ## Create a new project
 
 We will use a minimal `package.json` with ESM modules.
@@ -36,9 +39,6 @@ npm install
 
 ## Add and configure TypeScript
 
-We'll use TypeScript 5.0 because as of 2023-07-03, typescript-eslint is not
-compatible with TypeScript 5.1.
-
 [`@tsconfig/node18`](https://www.npmjs.com/package/@tsconfig/node18) is a tiny
 package which provides some default values for tsconfig to extend from. It's
 [recommended](https://www.typescriptlang.org/tsconfig#target) by typescript
@@ -52,12 +52,8 @@ We added the `exactOptionalPropertyTypes` option to make TypeScript more strict
 about optional properties. It is a recommended option that is not enabled by
 default.
 
-The `rootDir` option is not strictly necessary, TypeScript will attempt to
-automatically detect it if it's not specified. It might be better to specify it
-explicitly.
-
 ```sh
-npm install --save-dev 'typescript@~5.0.4' '@tsconfig/node18' '@types/node'
+npm install --save-dev 'typescript' '@tsconfig/node18' '@types/node'
 ```
 
 `tsconfig.json`:
@@ -130,8 +126,7 @@ Hello world!
 The default ESLint configuration is a good starting point. However, there are
 [plenty](https://eslint.org/docs/latest/rules/) of additional checks that are
 not enabled by default. For instance, the
-[`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added as
-an example.
+[`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added.
 
 ```sh
 npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
@@ -175,9 +170,7 @@ npx eslint .
 
 Prettier provides good defaults out of the box and even maintains a
 [philosophy](https://prettier.io/docs/en/option-philosophy.html) regarding its
-options. In this guide, we will modify the `trailingComma` option as an example.
-However, it's generally recommended to leave most options at their default
-settings.
+options. In this guide, we will change the `trailingComma` option.
 
 ```sh
 npm install --save-dev 'prettier'
