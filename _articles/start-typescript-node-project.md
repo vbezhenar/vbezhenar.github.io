@@ -276,9 +276,13 @@ TypeScript out of the box. Here're some settings which configure Prettier to be
 a default formatter and to run it on save:
 
 ```json
+{
+  ...,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "prettier.proseWrap": "always",
+  ...
+}
 ```
 
 It's possible to configure WebStorm or Idea with ESLint and Prettier as well.
