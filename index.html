@@ -1,4 +1,32 @@
 ---
 ---
 
-<h1>vbezhenar.com</h1>
+<h2>Articles</h2>
+<ul>
+  {% for article in site.articles %}
+  <li>
+    <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+    {{ article.excerpt }}
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Gists</h2>
+<ul>
+  {% for gist in site.gists %}
+  <li>
+    <h3><a href="{{ gist.url }}">{{ gist.title }}</a></h3>
+    {{ gist.content }}
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Posts</h2>
+<ul>
+  {% for post in site.posts %}
+  <li>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    {{ post.excerpt }}
+  </li>
+  {% endfor %}
+</ul>
