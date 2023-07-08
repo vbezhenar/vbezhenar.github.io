@@ -10,20 +10,3 @@ a {
 a:visited {
   color: #551a8b;
 }
-
-/* keyword */
-.highlight .k /* Keyword */,
-.highlight .kn /* Keyword.Namespace */ {
-  color: #0000ff;
-}
-
-/* comment */
-.highlight .c1 /* Comment.Single */,
-.highlight .cm /* Comment.Multiline */ {
-  color: #008000;
-}
-
-/* string */
-.highlight .s /* Literal.String */ {
-  color: #a31515;
-}

@@ -1,5 +1,7 @@
-@import "./styles-light.css?230623" not (prefers-color-scheme: dark);
-@import "./styles-dark.css?230623" (prefers-color-scheme: dark);
+@import "./styles-light.css?230709" not (prefers-color-scheme: dark);
+@import "./rouge-github.css?230709" not (prefers-color-scheme: dark);
+@import "./styles-dark.css?230709" (prefers-color-scheme: dark);
+@import "./rouge-gruvbox.css?230709" (prefers-color-scheme: dark);
 
 :root {
   --header-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
