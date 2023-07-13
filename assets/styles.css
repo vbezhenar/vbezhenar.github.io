@@ -1,7 +1,7 @@
-@import "./styles-light.css?230709" not (prefers-color-scheme: dark);
-@import "./rouge-github.css?230709" not (prefers-color-scheme: dark);
-@import "./styles-dark.css?230709" (prefers-color-scheme: dark);
-@import "./rouge-gruvbox.css?230709" (prefers-color-scheme: dark);
+@import "./styles-light.css?230713" not (prefers-color-scheme: dark);
+@import "./rouge-github.css?230713" not (prefers-color-scheme: dark);
+@import "./styles-dark.css?230713" (prefers-color-scheme: dark);
+@import "./rouge-gruvbox.css?230713" (prefers-color-scheme: dark);
 
 :root {
   --header-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
@@ -14,7 +14,10 @@
 
 body {
   margin: 0;
+  background-color: var(--body-background-color);
   font-family: var(--content-font-family);
+  line-height: 1.5;
+  color: var(--body-color);
 }
 
 h1,
@@ -24,6 +27,21 @@ h4,
 h5,
 h6 {
   font-family: var(--header-font-family);
+  font-weight: normal;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--link-visited-color);
+}
+
+pre {
+  border: 1px solid var(--code-border-color);
+  padding: 0.5em;
+  overflow: auto;
 }
 
 code {

@@ -1,12 +1,7 @@
-body {
-  background: #181818;
-  color: #d7d7d7;
-}
-
-a {
-  color: #9494f7;
-}
-
-a:visited {
-  color: #ad70e6;
+:root {
+  --body-background-color: #181818;
+  --body-color: #d7d7d7;
+  --link-color: #9494f7;
+  --link-visited-color: #ad70e6;
+  --code-border-color: #505050;
 }
