@@ -18,8 +18,8 @@ to be useful and enable them in my projects.
 We will use a minimal `package.json` with ESM modules.
 
 ```sh
-mkdir my-project
-cd my-project
+% mkdir my-project
+% cd my-project
 ```
 
 `package.json`:
@@ -34,7 +34,7 @@ cd my-project
 Check JSON syntax:
 
 ```sh
-npm install
+% npm install
 ```
 
 ## Add and configure TypeScript
@@ -53,7 +53,7 @@ about optional properties. It is a recommended option that is not enabled by
 default.
 
 ```sh
-npm install --save-dev 'typescript' '@tsconfig/node18' '@types/node'
+% npm install --save-dev 'typescript' '@tsconfig/node18' '@types/node'
 ```
 
 `tsconfig.json`:
@@ -94,9 +94,10 @@ Now we will compile, inspect results and run the code. Notice that JavaScript
 output is pretty much identical to the TypeScript minus types.
 
 ```sh
-npx tsc
-cat dist/concat.js
+% npx tsc
 ```
+
+`dist/concat.js`:
 
 ```js
 export function concat(a, b) {
@@ -104,9 +105,7 @@ export function concat(a, b) {
 }
 ```
 
-```sh
-cat dist/index.js
-```
+`dist/index.js`:
 
 ```js
 import { concat } from "./concat.js";
@@ -114,10 +113,7 @@ console.log(concat("Hello", "world!"));
 ```
 
 ```sh
-node dist/index.js
-```
-
-```
+% node dist/index.js
 Hello world!
 ```
 
@@ -129,7 +125,7 @@ not enabled by default. For instance, the
 [`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) check has been added.
 
 ```sh
-npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
+% npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-eslint/parser'
 ```
 
 `.eslintignore`:
@@ -163,7 +159,7 @@ npm install --save-dev 'eslint' '@typescript-eslint/eslint-plugin' '@typescript-
 Check that it works:
 
 ```sh
-npx eslint .
+% npx eslint .
 ```
 
 ## Add and configure Prettier
@@ -173,7 +169,7 @@ Prettier provides good defaults out of the box and even maintains a
 options. In this guide, we will change the `trailingComma` option.
 
 ```sh
-npm install --save-dev 'prettier'
+% npm install --save-dev 'prettier'
 ```
 
 `.prettierignore`:
@@ -193,10 +189,7 @@ npm install --save-dev 'prettier'
 Now we can check if our sources are properly formatted:
 
 ```sh
-npx prettier -c .
-```
-
-```
+% npx prettier -c .
 Checking formatting...
 All matched files use Prettier code style!
 ```
@@ -224,11 +217,8 @@ JavaScript files with names matching
 inside `dist` directory and will execute every one of them.
 
 ```sh
-npx tsc
-node --test dist
-```
-
-```
+% npx tsc
+% node --test dist
 ✔ concat works (0.48175ms)
 ℹ tests 1
 ℹ pass 1
