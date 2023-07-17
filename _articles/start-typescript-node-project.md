@@ -6,9 +6,9 @@ Minimal selection of tools and libraries for a TypeScript Node project.
 
 ## Prerequisites
 
-This setup has been tested with node v18.16.0 and npm 9.7.1. Basic knowledge of
-npm is assumed. Reading reference documentation for corresponding tools is
-recommended.
+This setup has been tested with node v18.16.0, npm 9.7.1, eslint 8.45.0,
+typescript-eslint 6.0.0, prettier 3.0.0. Basic knowledge of npm is assumed.
+Reading reference documentation for corresponding tools is recommended.
 
 Some options are not standard and disabled by default. I consider those options
 to be useful and enable them in my projects.
@@ -65,7 +65,8 @@ default.
   "compilerOptions": {
     "exactOptionalPropertyTypes": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "verbatimModuleSyntax": true
   }
 }
 ```
@@ -140,18 +141,27 @@ not enabled by default. For instance, the
 {
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "es2022",
+    "ecmaVersion": 2022,
     "project": "tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
   "root": true,
   "rules": {
-    "eqeqeq": "error"
+    "curly": ["error", "multi-line"],
+    "eqeqeq": "error",
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        "allowString": false,
+        "allowNumber": false,
+        "allowNullableObject": false
+      }
+    ]
   }
 }
 ```
@@ -182,7 +192,6 @@ options. In this guide, we will change the `trailingComma` option.
 
 ```
 {
-  "trailingComma": "all"
 }
 ```
 
@@ -247,7 +256,7 @@ commands and their options.
     "start": "node dist/index.js",
     "start:watch": "node --watch dist/index.js",
     "test": "node --test dist",
-    "test:watch": "node --watch --test dist"
+    "test:watch": "node --test --watch dist"
   },
   ...
 }
