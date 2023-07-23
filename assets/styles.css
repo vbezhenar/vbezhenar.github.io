@@ -16,6 +16,8 @@
     --code-border-color: #c0c0c0;
     --code-string-color: #a31515;
     --code-comment-color: #008000;
+    --button-hover-background-color: #f0f0f0;
+    --button-active-background-color: #e0e0e0;
   }
 }
 
@@ -73,9 +75,13 @@ nav .selected {
   padding: 8px;
 }
 
+div.highlight {
+  position: relative;
+}
+
 pre {
   border: 1px solid var(--code-border-color);
-  padding: 0.5em;
+  padding: 8px;
   overflow: auto;
 }
 
@@ -98,4 +104,36 @@ code {
 .language-ts .dl,
 .language-ts .s2 {
   color: var(--code-string-color);
+}
+
+button.copy {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--code-border-color);
+  border: 1px solid var(--code-border-color);
+  background-color: var(--body-background-color);
+  text-align: center;
+  font-size: 20px;
+  color: inherit;
+  cursor: pointer;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+button.copy.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+button.copy:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+button.copy:active {
+  background-color: var(--button-active-background-color);
 }
