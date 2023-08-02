@@ -113,11 +113,9 @@ button.copy {
   width: 32px;
   height: 32px;
   border: 1px solid var(--code-border-color);
-  border: 1px solid var(--code-border-color);
   background-color: var(--body-background-color);
-  text-align: center;
-  font-size: 20px;
-  color: inherit;
+  padding: 0;
+
   cursor: pointer;
 
   visibility: hidden;
