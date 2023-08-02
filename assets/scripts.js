@@ -11,10 +11,16 @@ function initDivHighlightCopyButton() {
 function handleDivHighlightMouseEnter(event) {
   const divHighlightElement = event.target;
   let copyButtonElement = divHighlightElement.querySelector("button.copy");
+
   if (copyButtonElement === null) {
     copyButtonElement = document.createElement("button");
     copyButtonElement.classList.add("copy");
-    copyButtonElement.textContent = "\u29c9";
+    const image = document.createElement("img");
+    image.src = "/assets/copy.svg?230802";
+    image.width = 16;
+    image.height = 16;
+    image.alt = "Copy";
+    copyButtonElement.appendChild(image);
     copyButtonElement.addEventListener("click", handleCopyButtonClick);
     divHighlightElement.appendChild(copyButtonElement);
     forceReflow(copyButtonElement);
