@@ -35,14 +35,11 @@ function handleDivHighlightMouseLeave(event) {
 }
 
 async function handleCopyButtonClick(event) {
-  const copyButtonElement = event.target;
+  const copyButtonElement = event.currentTarget;
   const divHighlightElement = copyButtonElement.parentElement;
   const preElement = divHighlightElement.querySelector("pre");
   const text = preElement.textContent;
-  await navigator.clipboard.writeText(text);
-  copyButtonElement.textContent = "\u2713";
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  copyButtonElement.textContent = "\u29c9";
+  navigator.clipboard.writeText(text);
 }
 
 function forceReflow(element) {
