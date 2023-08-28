@@ -1,46 +1,7 @@
-:root {
-  --header-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
-    "DejaVu Sans", source-sans-pro, sans-serif;
-  --content-font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria,
-    serif;
-  --code-font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
-    Consolas, "DejaVu Sans Mono", monospace;
-}
-
-@media not (prefers-color-scheme: dark) {
-  :root {
-    --body-background-color: #f8f8f8;
-    --body-color: #3b3b3b;
-    --link-color: #0000ee;
-    --link-visited-color: #551a8b;
-    --code-border-color: #c0c0c0;
-    --code-string-color: #a31515;
-    --code-comment-color: #008000;
-    --button-hover-background-color: #f0f0f0;
-    --button-active-background-color: #e0e0e0;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-background-color: #202020;
-    --body-color: #cccccc;
-    --link-color: #9494f7;
-    --link-visited-color: #ad70e6;
-    --code-border-color: #505050;
-    --code-string-color: #ce9178;
-    --code-comment-color: #6a9955;
-  }
-}
-
 body {
   margin: 0 auto;
-  max-width: 48em;
-  background-color: var(--body-background-color);
-  font-family: var(--content-font-family);
-  font-size: 16px;
+  max-width: 30em;
   line-height: 1.5;
-  color: var(--body-color);
 }
 
 h1,
@@ -49,22 +10,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--header-font-family);
+  font-family: sans-serif;
   font-weight: normal;
-}
-
-a {
-  color: var(--link-color);
-}
-
-a:visited {
-  color: var(--link-visited-color);
 }
 
 nav {
   padding: 8px;
   border-bottom: 1px solid #aaa;
-  font-family: var(--header-font-family);
+  font-family: sans-serif;
 }
 
 nav .selected {
@@ -80,13 +33,9 @@ div.highlight {
 }
 
 pre {
-  border: 1px solid var(--code-border-color);
-  padding: 8px;
+  border: 1px solid lightgrey;
+  padding: 8px 40px 8px 8px;
   overflow: auto;
-}
-
-code {
-  font-family: var(--code-font-family);
 }
 
 .language-js .k,
@@ -103,7 +52,7 @@ code {
 .language-sh .s1,
 .language-ts .dl,
 .language-ts .s2 {
-  color: var(--code-string-color);
+  color: #a31515;
 }
 
 button.copy {
@@ -112,26 +61,12 @@ button.copy {
   right: 0px;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--code-border-color);
-  background-color: var(--body-background-color);
-  padding: 0;
 
   cursor: pointer;
 
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.2s, visibility 0.2s;
 }
 
-button.copy.visible {
+:hover > button.copy {
   visibility: visible;
-  opacity: 1;
-}
-
-button.copy:hover {
-  background-color: var(--button-hover-background-color);
-}
-
-button.copy:active {
-  background-color: var(--button-active-background-color);
 }
