@@ -1,8 +1,6 @@
 ---
-title: Install homebrew package
+title: Install homebrew package without homebrew
 ---
-
-How to install binary homebrew package without homebrew.
 
 Example URLs:
 ```
