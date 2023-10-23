@@ -1,3 +1,7 @@
+---
+title: kubectl exec etcdctl
+---
+
 Invoking etcdctl using kubectl for kubeadm cluster
 
 ```sh
