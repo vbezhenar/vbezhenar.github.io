@@ -5,6 +5,7 @@ title: Using aws cli for S3 inside docker
 ```sh
 read AWS_ACCESS_KEY_ID
 read AWS_SECRET_ACCESS_KEY
+export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
 docker run --rm \
   -e 'AWS_ACCESS_KEY_ID' -e 'AWS_SECRET_ACCESS_KEY' \
   -v "$PWD:/aws" \
