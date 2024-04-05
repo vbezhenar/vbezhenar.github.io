@@ -133,7 +133,7 @@ title: maven minimal pom.xml
       <vendor>openjdk</vendor>
     </provides>
     <configuration>
-      <jdkHome>/opt/jdk-1.8</jdkHome>
+      <jdkHome>/opt/jdk-1.8/</jdkHome>
     </configuration>
   </toolchain>
 
@@ -144,7 +144,7 @@ title: maven minimal pom.xml
       <vendor>openjdk</vendor>
     </provides>
     <configuration>
-      <jdkHome>/opt/jdk-11</jdkHome>
+      <jdkHome>/opt/jdk-11/</jdkHome>
     </configuration>
   </toolchain>
 
@@ -155,7 +155,7 @@ title: maven minimal pom.xml
       <vendor>openjdk</vendor>
     </provides>
     <configuration>
-      <jdkHome>/opt/jdk-17</jdkHome>
+      <jdkHome>/opt/jdk-17/</jdkHome>
     </configuration>
   </toolchain>
 
@@ -166,7 +166,7 @@ title: maven minimal pom.xml
       <vendor>openjdk</vendor>
     </provides>
     <configuration>
-      <jdkHome>/opt/jdk-21</jdkHome>
+      <jdkHome>/opt/jdk-21/</jdkHome>
     </configuration>
   </toolchain>
 </toolchains>
