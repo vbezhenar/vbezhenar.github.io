@@ -2,6 +2,8 @@
 title: maven minimal pom.xml
 ---
 
+`pom.xml`:
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
@@ -117,6 +119,57 @@ title: maven minimal pom.xml
     </pluginManagement>
   </build>
 </project>
+```
+
+`~/.m2/toolchains.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<toolchains>
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>1.8</version>
+      <vendor>openjdk</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/opt/jdk-1.8</jdkHome>
+    </configuration>
+  </toolchain>
+
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>11</version>
+      <vendor>openjdk</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/opt/jdk-11</jdkHome>
+    </configuration>
+  </toolchain>
+
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>17</version>
+      <vendor>openjdk</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/opt/jdk-17</jdkHome>
+    </configuration>
+  </toolchain>
+
+  <toolchain>
+    <type>jdk</type>
+    <provides>
+      <version>21</version>
+      <vendor>openjdk</vendor>
+    </provides>
+    <configuration>
+      <jdkHome>/opt/jdk-21</jdkHome>
+    </configuration>
+  </toolchain>
+</toolchains>
 ```
 
 ```
