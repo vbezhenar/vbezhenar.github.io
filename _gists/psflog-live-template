@@ -1,0 +1,11 @@
+---
+title: Idea SLF4J logger live template
+---
+
+```
+private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger($CLASS$.class);
+```
+
+Applicable in Java: declaration
+
+CLASS: className(), Skip if defined
